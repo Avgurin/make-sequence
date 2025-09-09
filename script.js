@@ -7,22 +7,25 @@ function go() {
   let str = "п. ";
   let last = 0;
   str += numArr[0];
-  for (let i = 0; i < numArr.length - 1; i++) {
+  for (let i = 0; i < numArr.length; i++) {
     if (numArr[i] + 1 == numArr[i + 1]) {
       last = numArr[i + 1];
     } else {
       if (last == 0) {
-        str += ", ";
-        str += numArr[i + 1];
+        if (i!=numArr.length-1){
+          str += ", ";
+          str += numArr[i + 1];
+        }
       } else {
         str += "-";
         str += last;
         last = 0;
-        str += ", ";
-        str += numArr[i + 1];
+        if (i!=numArr.length-1){
+          str += ", ";
+          str += numArr[i + 1];
+        }
       }
     }
   }
-  console.log(str);
   document.getElementById("str").value = str;
 }
